@@ -14,7 +14,7 @@ abstract class Automaton
      * @param string $input
      * @return true ako se niz podudara, false inace
      */
-    public abstract function match($input) : bool;
+    public abstract function match(string $input) : bool;
 
     /**
     * Metoda na temelju definicije automata te ulaznih parametara

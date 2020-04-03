@@ -78,7 +78,7 @@ class HTMLCollection
      */
     public function delete(int $position){
         if (array_key_exists($position, $this->nodes)){
-            unset($this->nodes, $position);
+            unset($this->nodes[$position]);
         }
     }
 

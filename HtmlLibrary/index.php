@@ -30,8 +30,6 @@ $body->add_child(new HTMLBrElement());
  */
 $table = new HTMLTableElement();
 $table->add_attribute(new HTMLAttribute("border","1"));
-$table->add_empty_row();
-
 $row_1 = new HTMLRowElement();
 
 $cell_1_1 = new HTMLCellElement();
@@ -48,6 +46,13 @@ $cell_1_3->add_text_node($text_node_3);
 
 $row_1->add_cells([$cell_1_1, $cell_1_2, $cell_1_3]);
 $table->add_existing_row($row_1);
+
+$row_2 = new HTMLRowElement();
+$cell_2_1 = new HTMLCellElement();
+$cell_2_1->add_child(new HTMLTextNode("celija4"));
+$row_2->add_child($cell_2_1);
+
+$table->add_child($row_2);
 
 $body->add_child($table);
 /*
@@ -116,3 +121,23 @@ $body->add_child($a);
 
 $html->add_children(new HTMLCollection([$head, $body]));
 echo $html->get_html();
+
+
+
+/*
+ * Testiranje nekih funkcija
+ */
+
+echo $body->get_child(1);
+//echo $body->get_child(100); //uzrokuje pogresku
+//echo $body->get_child(-1); //isto uzrokuje pogresku
+
+
+echo $body->get_children_number(); //7
+
+echo $body->get_child($body->get_children_number()-1); //provjera dohvata zadnjeg elementa - link
+echo $body->remove_child(1);
+
+echo $body->get_child($body->get_children_number()-1); //br
+
+echo $body->get_children_number(); //6

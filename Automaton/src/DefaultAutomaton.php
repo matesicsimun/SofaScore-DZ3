@@ -17,7 +17,7 @@ class DefaultAutomaton extends Automaton
     * regularnih izraza; regularni izrazi moraju biti valjani i u
     * skladu s PHP notacijom da bi ih PCRE mogao izvoditi.
     */
-    public function __construct($input, array $regex = [])
+    public function __construct(string $input, array $regex = [])
     {
         $this->originalInput = $input;
         $this->definitions = $regex;
@@ -44,7 +44,7 @@ class DefaultAutomaton extends Automaton
     /**
      * @inheritDoc
      */
-    public function match($input): bool
+    public function match(string $input): bool
     {
         if (1 === preg_match($this->fullRegex, $input)){
             return true;

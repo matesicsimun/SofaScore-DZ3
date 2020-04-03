@@ -5,4 +5,4 @@ if (key_exists("id1", $arr)){
     unset($arr["id1"]);
 }
 
-print_r($arr);
+echo count($arr);
